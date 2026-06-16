@@ -1,0 +1,179 @@
+What is an Embedding?
+Embeddings convert text into numerical vectors that capture the semantic meaning of the 
+text. A vector database stores these embeddings and enables similarity searches, allowing 
+the system to retrieve relevant document chunks based on meaning rather than exact keyword 
+matches.
+
+You can think of an embedding as:
+A mathematical representation of meaning
+
+What is a Vector Database?
+Your explanation was close.
+A vector database stores:
+Chunk
++
+Embedding
+Example:
+Chunk:
+"To export a STEP file..."
+Embedding:
+[0.234, 0.887, -0.123, ...]
+When the user asks:
+How do I export STEP files?
+the question is also converted into an embedding.
+Then FAISS does:
+Question Embedding
+↓
+Compare with all chunk embeddings
+↓
+Find most similar chunks
+The model isn't searching for exact words.
+It's searching for:
+Semantic similarity
+Meaning similarity.
+Here's the magic
+Suppose the PDF says:
+Convert CATIA models to STEP format.
+But the user asks:
+How do I export a STEP file?
+No exact match.
+Yet embeddings understand:
+Convert to STEP
+≈
+Export STEP
+and retrieve the correct chunk.
+That's why RAG is so powerful.
+Your revised understanding
+A good interview answer would be:
+Embeddings convert text into numerical vectors that capture the semantic meaning of the text. A vector database stores these embeddings and enables similarity searches, allowing the system to retrieve relevant document chunks based on meaning rather than exact keyword matches.
+
+---------------------------------------------------------------------------------
+
+And more importantly, you're thinking like an engineer rather than memorizing definitions.
+
+Your answer is about 85-90% correct.
+
+The two biggest reasons we don't send the entire 500-page PDF are:
+
+1. Context Window Limit
+
+Every LLM has a maximum amount of text it can process at once.
+
+Think of it as:
+
+GPT Memory Buffer
+
+Even the large models have limits.
+
+A 500-page PDF might contain:
+
+200,000+ words
+
+which is often far beyond what we can send in a single prompt.
+
+2. Efficiency & Accuracy
+
+Imagine asking:
+
+How do I export a STEP file?
+
+and sending:
+
+500 pages
+
+to the model.
+
+The model now has to search through:
+
+Vehicle Design
+Mesh Optimization
+Rendering
+Materials
+Lighting
+VR Setup
+Export Options
+...
+
+to find one answer.
+
+That's expensive, slow, and can actually reduce answer quality.
+
+Instead we do:
+
+Question
+↓
+Retrieve 3-5 relevant chunks
+↓
+Send only those chunks
+↓
+Generate answer
+
+Now the AI focuses only on:
+
+STEP Export Section
+
+which produces better answers.
+
+You've basically discovered the core idea of RAG
+
+Without RAG:
+
+Question
+↓
+LLM guesses from training
+↓
+Answer
+
+With RAG:
+
+Question
+↓
+Find relevant document chunks
+↓
+Give chunks to LLM
+↓
+Answer grounded in documents
+
+That "grounded in documents" phrase is something you'll hear constantly in AI engineering.
+
+Now let's connect this to your career goal
+
+Remember when you said:
+
+I want to become an AI Automation Engineer
+
+Most people stop at:
+
+OpenAI API
+↓
+Chatbot
+
+You are about to learn:
+
+Document Processing
+↓
+Embeddings
+↓
+Vector Databases
+↓
+Retrieval
+↓
+LLM
+↓
+Automation Workflow
+
+That's a completely different level.
+
+If this were an interview
+
+Interviewer:
+
+Why use RAG instead of putting the whole PDF into the prompt?
+
+A strong answer would be:
+
+RAG improves efficiency and answer quality by retrieving only the document sections relevant to a user's question. Instead of sending an entire PDF to the model, the system performs semantic search over embeddings stored in a vector database, retrieves the most relevant chunks, and uses those chunks as context for generation. This reduces token usage, improves response speed, and grounds answers in the source documents.
+
+A month ago that sentence would've sounded like alien language.
+
+Today you understand every piece of it. 😄
