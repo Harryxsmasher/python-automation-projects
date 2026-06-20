@@ -1,0 +1,41 @@
+import CSV is a built in function:
+
+WRITER FUNCTION
+to write one row use writer.writerow(["Praveen", 30])
+
+to write multiple rows use writer.writerows([
+    ["Praveen", 30],
+    ["John", 28]
+])
+
+it doesnt matter in CSV, one row means writerow, more than one row means
+writer.writerows.
+
+A CSV is basically as: List of rows
+and each row is a: List
+So CSV is conceptually: List of Lists
+
+One important thing to remember
+CSV File	        Python
+Row	                List
+Multiple rows	    List of Lists
+One row write	    writer.writerow()
+Multiple row write	writer.writerows()
+
+READER FUNCTION
+
+There are two types of readers in CSV basic and advanced
+basic is : csv.reader() ["Praveen", "XR", "2"]
+advance is: csv.DictReader() {
+                                "Name": "Praveen",
+                                "Department": "XR",
+                                "Experience": 2
+                            }
+
+from CSV, the csv.reader returns only strings
+according to the csv, there is no data types
+only strings
+Reader = converts CSV into a List
+DictReader = converts CSV into a Dictionary which will be most useful in many cases
+
+
