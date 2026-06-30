@@ -1,3 +1,4 @@
+# Inheritance Example
 class Person:
     def __init__(self, Name, Age):
         self.Name = Name
