@@ -37,13 +37,17 @@ csv = CSVReader("Employee.csv")
 json = JSONReader("Employee.json")
 excel = ExcelReader("Employee.xlsx")
 
+
+
 csv.read()
 json.read()
 excel.read()
+# reader.read()
 
 print(isinstance(csv, CSVReader))
 print(isinstance(json, JSONReader))
 print(isinstance(excel, ExcelReader))
+
 
 
 
